@@ -13,12 +13,11 @@ export default class App extends React.Component {
     return(
         <div>
           <ToDoHeader />
-          <ToDoFilter />
-          <ToDoSearch />
-          <ToDoList />
-          <ToDoListItem />
+            <ToDoFilter />
+            <ToDoSearch />
+            <ToDoList />
         </div>
-    )
+    );
   }
 
 }
