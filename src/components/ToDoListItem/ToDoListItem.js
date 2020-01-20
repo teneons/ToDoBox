@@ -4,7 +4,7 @@ export default class ToDoListItem extends React.Component {
 
 
     render() {
-        const {textItem, important } = this.props;
+        const {itemText, important } = this.props;
 
 
         const style = {
@@ -14,7 +14,7 @@ export default class ToDoListItem extends React.Component {
         return(
 
             <div>
-                <span style={style} >{textItem}{important}</span>
+                <span style={style} >{itemText}{important}</span>
             </div>
         )
     }

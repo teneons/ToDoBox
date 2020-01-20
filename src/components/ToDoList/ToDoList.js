@@ -4,11 +4,18 @@ import ToDoListItem from "../ToDoListItem/ToDoListItem";
 export default class ToDoList extends React.Component {
 
     render() {
+        const {itemDt} = this.props;
+
+        const elemsLi = itemDt.map((item) => {
+            return(
+                <li key={item.id}><ToDoListItem itemText={item.itemText} important={item.important} /></li>
+            )
+        })
+
         return(
             <div>
                 <ul>
-                    <li><ToDoListItem textItem="Item 1" important={false}/></li>
-                    <li><ToDoListItem textItem="Item 2" important={true} /></li>
+                    {elemsLi}
                 </ul>
             </div>
         )
