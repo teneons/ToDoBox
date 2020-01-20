@@ -18,9 +18,8 @@ export default class App extends React.Component {
           {id: 4, itemText: 'Item 4', important: false, done: false},
       ];
 
-
     return(
-        <div>
+        <div className="d-flex flex-column align-items-center">
           <ToDoHeader />
             <ToDoFilter />
             <ToDoSearch />
