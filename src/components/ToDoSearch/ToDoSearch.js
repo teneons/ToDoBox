@@ -7,8 +7,8 @@ export default class ToDoSearch extends React.Component {
         const txtPlaceholder = 'Search by list';
 
         return(
-            <div>
-                <input type='text' placeholder={txtPlaceholder} />
+            <div className="col-3">
+                <input className='form-control col' type='text' placeholder={txtPlaceholder} />
             </div>
         );
     }
