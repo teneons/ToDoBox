@@ -7,7 +7,7 @@ export default class ToDoListItem extends React.Component {
         const {itemText, important } = this.props;
 
         const style = {
-            color: important? 'red' : 'black',
+            color: important? '#dc3545' : 'black',
             fontWeight: important? '800' : '400'
         };
 

@@ -3,8 +3,6 @@ import React from 'react';
 export default class ToDoHeader extends React.Component {
 
     render() {
-
-
         return(
             <div className='d-flex flex-column align-items-center'>
 
