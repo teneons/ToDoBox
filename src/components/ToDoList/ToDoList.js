@@ -1,21 +1,21 @@
 import React from 'react';
-import ToDoListItem from "../ToDoListItem/ToDoListItem";
+import ToDoListItem from '../ToDoListItem/ToDoListItem';
 
 export default class ToDoList extends React.Component {
 
     render() {
         const {itemDt} = this.props;
 
-        const elemsLi = itemDt.map((item) => {
+        const elemLi = itemDt.map((item) => {
             return(
-                <li key={item.id}><ToDoListItem itemText={item.itemText} important={item.important} /></li>
+                <li key={item.id} className='list-group-item p-2'><ToDoListItem itemText={item.itemText} important={item.important} /></li>
             )
         })
 
         return(
-            <div>
-                <ul>
-                    {elemsLi}
+            <div className='card col-3 p-1 shadow-lg bg-white rounded'>
+                <ul className='list-group list-group-flush'>
+                    {elemLi}
                 </ul>
             </div>
         )
