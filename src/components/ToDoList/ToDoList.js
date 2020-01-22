@@ -8,7 +8,7 @@ export default class ToDoList extends React.Component {
 
         const elemLi = itemDt.map((item) => {
             return(
-                <li key={item.id} className='list-group-item p-2'><ToDoListItem itemText={item.itemText} important={item.important} done={item.done}/></li>
+                <li key={item.id} className='list-group-item p-2'><ToDoListItem onDeleted={()=>console.log(42)} itemText={item.itemText} important={item.important} done={item.done}/></li>
             )
         })
 

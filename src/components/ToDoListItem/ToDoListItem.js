@@ -23,7 +23,7 @@ export default class ToDoListItem extends React.Component {
 
 
     render() {
-        const {itemText} = this.props;
+        const {itemText, onDeleted} = this.props;
 
         let  nameClss = 'ToDoListItem';
         if(this.state.important){
@@ -41,7 +41,7 @@ export default class ToDoListItem extends React.Component {
                 <div className='float-right'>
                     <button onClick={this.importantClick} className='btn btn-sm btn-danger mr-1'><i className='fa fa-star'></i></button>
                     <button onClick={this.doneClick} className='btn btn-sm btn-secondary mr-1'><i className='fa fa-check-square-o'></i></button>
-                    <button className='btn btn-sm btn-dark mr-1'><i className='fa fa-trash-o'></i></button>
+                    <button onClick={onDeleted} className='btn btn-sm btn-dark mr-1'><i className='fa fa-trash-o'></i></button>
                 </div>
             </div>
         )
