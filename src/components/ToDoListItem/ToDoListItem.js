@@ -25,20 +25,20 @@ export default class ToDoListItem extends React.Component {
 
 
     render() {
-        const {itemText, importantItem, doneItem, deletedClick, onStageImportant, onStageDone} = this.props;
+        const {itemText, itemImportant, itemDone, deletedClick, onStageImportant, onStageDone} = this.props;
 
         let  nameClss = 'ToDoListItem';
-        if(importantItem){
+        if(itemImportant){
             nameClss += ' important';
         }
-        if(doneItem){
+        if(itemDone){
             nameClss += ' done';
         }
 
         return(
             <div>
                 <span className={nameClss}>
-                    <span className='ToDoListItemText'>{itemText}{importantItem}{doneItem}</span>
+                    <span className='ToDoListItemText'>{itemText}{itemImportant}{itemDone}</span>
                 </span>
                 <div className='float-right'>
                     <button onClick={onStageImportant} className='btn btn-sm btn-danger mr-1'><i className='fa fa-star'></i></button>
