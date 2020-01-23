@@ -12,11 +12,11 @@ export default class App extends React.Component {
         super();
         this.state = {
             itemData: [
-                {id: 0, itemText: 'Item 0', important: false, done: false},
-                {id: 1, itemText: 'Item 1', important: true, done: true},
-                {id: 2, itemText: 'Item 2', important: true, done: true},
-                {id: 3, itemText: 'Item 3', important: true, done: false},
-                {id: 4, itemText: 'Item 4', important: false, done: false},
+                {id: 0, itemText: 'Item 0', importantItem: false, done: false, delete: false},
+                {id: 1, itemText: 'Item 1', importantItem: true, done: true},
+                {id: 2, itemText: 'Item 2', importantItem: true, done: true},
+                {id: 3, itemText: 'Item 3', importantItem: true, done: false},
+                {id: 4, itemText: 'Item 4', importantItem: false, done: false},
             ]
         };
 
@@ -42,7 +42,7 @@ export default class App extends React.Component {
         const newItem = {
             id: newItemId,
             itemText: itemText,
-            important: false,
+            importantItem: false,
             done: false
         };
 
