@@ -36,7 +36,7 @@ export default class ToDoListItem extends React.Component {
         return(
             <div>
                 <span className={nameClss}>
-                    <span className='ToDoListItemText'>{itemText}{this.state.importantItem}{this.state.done}</span>
+                    <span className='ToDoListItemText'>{itemText}{this.state.importantItem}{this.state.doneItem}</span>
                 </span>
                 <div className='float-right'>
                     <button onClick={this.importantClick} className='btn btn-sm btn-danger mr-1'><i className='fa fa-star'></i></button>
