@@ -8,19 +8,29 @@ import ToDoList from "../ToDoList/ToDoList";
 import ToDoAddItem from "../ToDoAddItem/ToDoAddItem";
 
 export default class App extends React.Component {
+
     constructor() {
         super();
         this.state = {
             itemData: [
-                {id: 0, itemText: 'Item 0', importantItem: false, doneItem: false, deleteItem: false},
-                {id: 1, itemText: 'Item 1', importantItem: true, doneItem: true, deleteItem: false},
-                {id: 2, itemText: 'Item 2', importantItem: true, doneItem: true, deleteItem: false},
-                {id: 3, itemText: 'Item 3', importantItem: true, doneItem: false, deleteItem: false},
-                {id: 4, itemText: 'Item 4', importantItem: false, doneItem: false, deleteItem: false},
+                this.createItem('Buy tickets'),
+                this.createItem('Call to SA'),
+                this.createItem('Refactor. code')
             ]
         };
 
     };
+    createId = 0;
+
+    createItem (itemText) {
+        return{
+            id: this.createId++,
+            itemText,
+            importantItem: false,
+            doneItem: false,
+            deleteItem: false
+        }
+    }
 
     deleteItem = (id) => {
         this.setState(({itemData})=>{
@@ -37,15 +47,8 @@ export default class App extends React.Component {
     };
 
     addItem = (itemText) => {
-        const newItemId = this.state.itemData.length+1;
 
-        const newItem = {
-            id: newItemId,
-            itemText: itemText,
-            importantItem: false,
-            doneItem: false,
-            deleteItem: false
-        };
+        const newItem = this.createItem(itemText);
 
         this.setState(({itemData})=>{
             const newAddsArray = [...itemData,newItem]
