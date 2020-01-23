@@ -8,7 +8,7 @@ export default class ToDoSearch extends React.Component {
 
         return(
             <div className='col-3 mb-2'>
-                <input className='form-control col' type='text' placeholder={txtPlaceholder} />
+                <input className='form-control' type='text' placeholder={txtPlaceholder} />
             </div>
         );
     }
