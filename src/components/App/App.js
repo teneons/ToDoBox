@@ -36,6 +36,26 @@ export default class App extends React.Component {
         });
     };
 
+    addItem = (itemText) => {
+        const newItemId = this.state.itemData.length+1;
+
+        const newItem = {
+            id: newItemId,
+            itemText: itemText,
+            important: false,
+            done: false
+        };
+
+        this.setState(({itemData})=>{
+            const newAddsArray = [...itemData,newItem]
+
+            return{
+                itemData: newAddsArray
+            }
+        });
+
+    }
+
   render() {
 
     return(
@@ -44,7 +64,7 @@ export default class App extends React.Component {
             <ToDoFilter />
             <ToDoSearch />
             <ToDoList  itemDt={this.state.itemData} deletedClick={this.deleteItem}/>
-            <ToDoAddItem />
+            <ToDoAddItem addItem={this.addItem} />
         </div>
     );
   }
