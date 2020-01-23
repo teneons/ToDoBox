@@ -25,7 +25,7 @@ export default class ToDoListItem extends React.Component {
 
 
     render() {
-        const {itemText, importantItem, doneItem,deletedClick, onStageImportant, onStageDone} = this.props;
+        const {itemText, importantItem, doneItem, deletedClick, onStageImportant, onStageDone} = this.props;
 
         let  nameClss = 'ToDoListItem';
         if(importantItem){
