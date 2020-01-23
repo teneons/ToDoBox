@@ -4,11 +4,11 @@ import ToDoListItem from '../ToDoListItem/ToDoListItem';
 export default class ToDoList extends React.Component {
 
     render() {
-        const {itemDt} = this.props;
+        const {itemDt, deletedClick} = this.props;
 
         const elemLi = itemDt.map((item) => {
             return(
-                <li key={item.id} className='list-group-item p-2'><ToDoListItem onDeleted={()=>console.log(42)} itemText={item.itemText} important={item.important} done={item.done}/></li>
+                <li key={item.id} className='list-group-item p-2'><ToDoListItem deletedClick={()=>deletedClick(item.id)} itemText={item.itemText} important={item.important} done={item.done}/></li>
             )
         })
 
