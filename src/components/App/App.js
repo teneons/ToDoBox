@@ -26,9 +26,9 @@ export default class App extends React.Component {
         return{
             id: this.createId++,
             itemText,
-            importantItem: false,
-            doneItem: false,
-            deleteItem: false
+            itemImportant: false,
+            itemDone: false,
+            itemDelete: false
         }
     }
 
@@ -48,10 +48,10 @@ export default class App extends React.Component {
 
     addItem = (itemText) => {
 
-        const newItem = this.createItem(itemText);
+        const itemNew = this.createItem(itemText);
 
         this.setState(({itemData})=>{
-            const newAddsArray = [...itemData,newItem]
+            const newAddsArray = [...itemData,itemNew]
 
             return{
                 itemData: newAddsArray
@@ -61,10 +61,14 @@ export default class App extends React.Component {
     }
 
     onStageImportant = (id) => {
+
         console.log('Stage Important', id)
     }
 
     onStageDone = (id) => {
+        this.setState(({itemData})=>{
+            const getIdEl = itemData.findIndex((idEl)=>idEl.id===id);
+        })
         console.log('Stage Done', id)
     }
 

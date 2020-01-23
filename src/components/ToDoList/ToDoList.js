@@ -11,9 +11,9 @@ export default class ToDoList extends React.Component {
                 <li key={item.id} className='list-group-item p-2'>
                     <ToDoListItem deletedClick={()=>deletedClick(item.id)}
                                   itemText={item.itemText}
-                                  importantItem={item.importantItem}
-                                  doneItem={item.doneItem}
-                                  deleteItem={item.deleteItem}
+                                  itemImportant={item.itemImportant}
+                                  itemDone={item.itemDone}
+                                  itemDelete={item.itemDelete}
                                   onStageImportant={()=>onStageImportant(item.id)}
                                   onStageDone={()=>onStageDone(item.id)}
                     />
