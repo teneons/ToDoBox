@@ -12,7 +12,8 @@ export default class ToDoList extends React.Component {
                     <ToDoListItem deletedClick={()=>deletedClick(item.id)}
                                   itemText={item.itemText}
                                   importantItem={item.importantItem}
-                                  doneItem={item.doneItem}/>
+                                  doneItem={item.doneItem}
+                                  deleteItem={item.deleteItem} />
                 </li>
             )
         })
