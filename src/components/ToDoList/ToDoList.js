@@ -4,7 +4,7 @@ import ToDoListItem from '../ToDoListItem/ToDoListItem';
 export default class ToDoList extends React.Component {
 
     render() {
-        const {itemDt, deletedClick} = this.props;
+        const {itemDt, deletedClick, onStageImportant, onStageDone} = this.props;
 
         const elemLi = itemDt.map((item) => {
             return(
@@ -13,7 +13,10 @@ export default class ToDoList extends React.Component {
                                   itemText={item.itemText}
                                   importantItem={item.importantItem}
                                   doneItem={item.doneItem}
-                                  deleteItem={item.deleteItem} />
+                                  deleteItem={item.deleteItem}
+                                  onStageImportant={()=>onStageImportant(item.id)}
+                                  onStageDone={()=>onStageDone(item.id)}
+                    />
                 </li>
             )
         })

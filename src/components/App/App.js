@@ -57,6 +57,14 @@ export default class App extends React.Component {
 
     }
 
+    onStageImportant = (id) => {
+        console.log('Stage Important', id)
+    }
+
+    onStageDone = (id) => {
+        console.log('Stage Done', id)
+    }
+
   render() {
 
     return(
@@ -64,7 +72,7 @@ export default class App extends React.Component {
           <ToDoHeader />
             <ToDoFilter />
             <ToDoSearch />
-            <ToDoList  itemDt={this.state.itemData} deletedClick={this.deleteItem}/>
+            <ToDoList  itemDt={this.state.itemData} deletedClick={this.deleteItem} onStageImportant={this.onStageImportant} onStageDone={this.onStageDone}/>
             <ToDoAddItem addItem={this.addItem} />
         </div>
     );

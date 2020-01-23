@@ -2,6 +2,7 @@ import React from 'react';
 import './ToDoListItem.css';
 
 export default class ToDoListItem extends React.Component {
+    /*
     constructor() {
         super();
         this.state = {
@@ -20,27 +21,28 @@ export default class ToDoListItem extends React.Component {
             })
         };
     };
+     */
 
 
     render() {
-        const {itemText, deletedClick} = this.props;
+        const {itemText, importantItem, doneItem,deletedClick, onStageImportant, onStageDone} = this.props;
 
         let  nameClss = 'ToDoListItem';
-        if(this.state.important){
+        if(importantItem){
             nameClss += ' important';
         }
-        if(this.state.done){
+        if(doneItem){
             nameClss += ' done';
         }
 
         return(
             <div>
                 <span className={nameClss}>
-                    <span className='ToDoListItemText'>{itemText}{this.state.importantItem}{this.state.doneItem}</span>
+                    <span className='ToDoListItemText'>{itemText}{importantItem}{doneItem}</span>
                 </span>
                 <div className='float-right'>
-                    <button onClick={this.importantClick} className='btn btn-sm btn-danger mr-1'><i className='fa fa-star'></i></button>
-                    <button onClick={this.doneClick} className='btn btn-sm btn-secondary mr-1'><i className='fa fa-check-square-o'></i></button>
+                    <button onClick={onStageImportant} className='btn btn-sm btn-danger mr-1'><i className='fa fa-star'></i></button>
+                    <button onClick={onStageDone} className='btn btn-sm btn-secondary mr-1'><i className='fa fa-check-square-o'></i></button>
                     <button onClick={deletedClick} className='btn btn-sm btn-dark mr-1'><i className='fa fa-trash-o'></i></button>
                 </div>
             </div>
