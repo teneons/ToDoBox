@@ -20,7 +20,7 @@ export default class App extends React.Component {
         };
 
     };
-    createId = 0;
+    createId = 100;
 
     createItem (itemText) {
         return{
@@ -68,19 +68,29 @@ export default class App extends React.Component {
     onStageDone = (id) => {
         this.setState(({itemData})=>{
             const getIdEl = itemData.findIndex((idEl)=>idEl.id===id);
+
+            const oldStageDone = itemData[getIdEl];
+            const newStageDone = {...itemData, itemDone: !oldStageDone.itemDone};
+
+            const newItemDataDone = [...itemData.slice(0, getIdEl), newStageDone,...itemData.slice(getIdEl +1)];
+
+            return {
+                itemData: newItemDataDone
+            };
         })
-        console.log('Stage Done', id)
     }
 
   render() {
 
+
+
     return(
         <div className="d-flex flex-column align-items-center">
           <ToDoHeader />
-            <ToDoFilter />
-            <ToDoSearch />
-            <ToDoList  itemDt={this.state.itemData} deletedClick={this.deleteItem} onStageImportant={this.onStageImportant} onStageDone={this.onStageDone}/>
-            <ToDoAddItem addItem={this.addItem} />
+          <ToDoFilter />
+          <ToDoSearch />
+          <ToDoList  itemDt={this.state.itemData} deletedClick={this.deleteItem} onStageImportant={this.onStageImportant} onStageDone={this.onStageDone}/>
+          <ToDoAddItem addItem={this.addItem} />
         </div>
     );
   }

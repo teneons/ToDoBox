@@ -38,7 +38,7 @@ export default class ToDoListItem extends React.Component {
         return(
             <div>
                 <span className={nameClss}>
-                    <span className='ToDoListItemText'>{itemText}{itemImportant}{itemDone}</span>
+                    <span className='ToDoListItemText'>{itemText}</span>
                 </span>
                 <div className='float-right'>
                     <button onClick={onStageImportant} className='btn btn-sm btn-danger mr-1'><i className='fa fa-star'></i></button>
