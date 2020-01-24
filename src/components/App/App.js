@@ -69,6 +69,7 @@ export default class App extends React.Component {
         const oldStage = arrayItems[getIdEl];
         const newStage = {...arrayItems, [nameState]: !oldStage[nameState]};
 
+        console.log(id);
         return [...arrayItems.slice(0, getIdEl), newStage,...arrayItems.slice(getIdEl +1)];
     }
 
