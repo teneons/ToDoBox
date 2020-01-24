@@ -81,12 +81,12 @@ export default class App extends React.Component {
     }
 
   render() {
-
-
+    const itemDoneCount =  this.state.itemData.filter((el)=>el.itemDone).length;
+    const itemCount = this.state.itemData.length - itemDoneCount;
 
     return(
         <div className="d-flex flex-column align-items-center">
-          <ToDoHeader />
+          <ToDoHeader itemDoneCount={itemDoneCount} itemCount={itemCount} />
           <ToDoFilter />
           <ToDoSearch />
           <ToDoList  itemDt={this.state.itemData} deletedClick={this.deleteItem} onStageImportant={this.onStageImportant} onStageDone={this.onStageDone}/>
