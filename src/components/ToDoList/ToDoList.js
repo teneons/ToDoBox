@@ -6,11 +6,13 @@ export default class ToDoList extends React.Component {
     render() {
         const {itemDt, deletedClick, onStageImportant, onStageDone} = this.props;
 
-        const elemLi = itemDt.map((item, idi) => {
+        const elemLi = itemDt.map((item) => {
             return(
-                <li key={idi} className='list-group-item p-2'>
+                <li key={item.id} className='list-group-item p-2'>
                     <ToDoListItem deletedClick={()=>deletedClick(item.id)}
                                   itemText={item.itemText}
+                                  itemImportant={item.itemImportant}
+                                  itemDone = {item.itemDone}
                                   onStageImportant={()=>onStageImportant(item.id)}
                                   onStageDone={()=>onStageDone(item.id)}
                     />

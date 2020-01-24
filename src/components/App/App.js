@@ -12,22 +12,22 @@ export default class App extends React.Component {
         super();
         this.state = {
             itemData: [
-                this.createItem('Buy tickets'),
-                this.createItem('Call to SA'),
-                this.createItem('Refactor. code')
+                this.createItem('Buy tickets', 1),
+                this.createItem('Call to SA', 2),
+                this.createItem('Refactor. code', 3)
             ]
         };
 
-    };
+    }
     createId = 100; //for create id
 
     //create item for itemData
-    createItem (itemText) {
+    createItem (itemText, id) {
         return{
-            id: this.createId++,
+            id,
             itemText,
             itemImportant: false,
-            itemDone: false,
+            itemDone: true,
             itemDelete: false
         }
     }
@@ -69,14 +69,13 @@ export default class App extends React.Component {
         const oldStage = arrayItems[getIdEl];
         const newStage = {...arrayItems, [nameState]: !oldStage[nameState]};
 
-        console.log(id);
         return [...arrayItems.slice(0, getIdEl), newStage,...arrayItems.slice(getIdEl +1)];
     }
 
     onStageImportant = (id) => {
         this.setState(({itemData})=>{
             return{
-                itemData: this.mainChangeState(itemData, id, 'important')
+                itemData: this.mainChangeState(itemData, id, 'importantItem')
             };
         });
     }
@@ -84,7 +83,7 @@ export default class App extends React.Component {
     onStageDone = (id) => {
         this.setState(({itemData})=>{
             return{
-                itemData: this.mainChangeState(itemData, id, 'done')
+                itemData: this.mainChangeState(itemData, id, 'doneItem')
             };
         });
     };
