@@ -8,7 +8,6 @@ import ToDoList from "../ToDoList/ToDoList";
 import ToDoAddItem from "../ToDoAddItem/ToDoAddItem";
 
 export default class App extends React.Component {
-
     constructor() {
         super();
         this.state = {
@@ -20,8 +19,9 @@ export default class App extends React.Component {
         };
 
     };
-    createId = 100;
+    createId = 100; //for create id
 
+    //create item for itemData
     createItem (itemText) {
         return{
             id: this.createId++,
@@ -32,6 +32,7 @@ export default class App extends React.Component {
         }
     }
 
+    //func. for deleted item
     deleteItem = (id) => {
         this.setState(({itemData})=>{
             const getIdEl = itemData.findIndex((idEl)=>idEl.id===id);
@@ -46,6 +47,7 @@ export default class App extends React.Component {
         });
     };
 
+    //func. for add new item to list (itemData)
     addItem = (itemText) => {
 
         const itemNew = this.createItem(itemText);
@@ -60,25 +62,31 @@ export default class App extends React.Component {
 
     }
 
-    onStageImportant = (id) => {
+    //changes state important and done
+    mainChangeState (arrayItems, id, nameState) {
+        const getIdEl = arrayItems.findIndex((idEl)=> idEl.id === id);
 
-        console.log('Stage Important', id)
+        const oldStage = arrayItems[getIdEl];
+        const newStage = {...arrayItems, [nameState]: !oldStage[nameState]};
+
+        return [...arrayItems.slice(0, getIdEl), newStage,...arrayItems.slice(getIdEl +1)];
+    }
+
+    onStageImportant = (id) => {
+        this.setState(({itemData})=>{
+            return{
+                itemData: this.mainChangeState(itemData, id, 'important')
+            };
+        });
     }
 
     onStageDone = (id) => {
         this.setState(({itemData})=>{
-            const getIdEl = itemData.findIndex((idEl)=>idEl.id===id);
-
-            const oldStageDone = itemData[getIdEl];
-            const newStageDone = {...itemData, itemDone: !oldStageDone.itemDone};
-
-            const newItemDataDone = [...itemData.slice(0, getIdEl), newStageDone,...itemData.slice(getIdEl +1)];
-
-            return {
-                itemData: newItemDataDone
+            return{
+                itemData: this.mainChangeState(itemData, id, 'done')
             };
-        })
-    }
+        });
+    };
 
   render() {
     const itemDoneCount =  this.state.itemData.filter((el)=>el.itemDone).length;
