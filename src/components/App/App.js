@@ -12,17 +12,17 @@ export default class App extends React.Component {
         super();
         this.state = {
             itemData: [
-                this.createItem('Buy tickets', 1),
-                this.createItem('Call to SA', 2),
-                this.createItem('Refactor. code', 3)
+                this.createItem('Buy tickets'),
+                this.createItem('Call to SA'),
+                this.createItem('Refactor. code')
             ]
         };
 
     }
-    createId = 100; //for create id
+    createId = 0; //for create id
 
     //create item for itemData
-    createItem (itemText, id) {
+    createItem (itemText) {
         return{
             id: this.createId++,
             itemText,
