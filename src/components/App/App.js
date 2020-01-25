@@ -24,11 +24,10 @@ export default class App extends React.Component {
     //create item for itemData
     createItem (itemText, id) {
         return{
-            id,
+            id: this.createId++,
             itemText,
-            itemImportant: false,
-            itemDone: true,
-            itemDelete: false
+            itemImportant: true,
+            itemDone: false
         }
     }
 
@@ -67,7 +66,7 @@ export default class App extends React.Component {
         const getIdEl = arrayItems.findIndex((idEl)=> idEl.id === id);
 
         const oldStage = arrayItems[getIdEl];
-        const newStage = {...arrayItems, [nameState]: !oldStage[nameState]};
+        const newStage = {...oldStage, [nameState]: !oldStage[nameState]};
 
         return [...arrayItems.slice(0, getIdEl), newStage,...arrayItems.slice(getIdEl +1)];
     }
