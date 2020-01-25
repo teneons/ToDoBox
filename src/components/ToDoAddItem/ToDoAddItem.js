@@ -13,8 +13,9 @@ export default class ToDoAddItem extends  React.Component {
     };
 
     submitTextItem = (e) => {
-        e.preventDefault();
+        e.preventDefault(); //not refresh page
         this.props.addItem(this.state.textInput);
+        this.setState({textInput: ''}); //for cleaning input
     };
 
     render() {
@@ -22,7 +23,7 @@ export default class ToDoAddItem extends  React.Component {
 
         return (
             <form className='col-3 d-flex flex-row mt-2' onSubmit={this.submitTextItem}>
-                <input onChange={this.onAddChange} className='form-control' type='text' placeholder={txtPlaceholder} />
+                <input onChange={this.onAddChange} value={this.state.textInput} className='form-control' type='text' placeholder={txtPlaceholder} />
                 <button className='btn btn-warning ml-1'><i className='fa fa-plus'></i></button>
             </form>
         );
